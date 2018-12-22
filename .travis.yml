@@ -1,0 +1,14 @@
+language: java
+jdk: oraclejdk8
+
+env:
+  global:
+  - secure: "....encrypted sonar token here....."
+
+
+script :
+  - mvn clean
+  - mvn sonar:sonar -Dsonar.projectKey=rafaaseddik_SpringBoot-Ecommerce -Dsonar.organization=rafaaseddik-github -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=2840e092d976f3a23366493c4892ddbbedccfb72
+  - mvn install 
+  - docker build -t BookStore 
+
